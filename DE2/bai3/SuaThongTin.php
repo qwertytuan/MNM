@@ -67,6 +67,5 @@ if (mysqli_query($conn, $sql)) {
 ?>
 </form>
     </div>  
-
 </body>
 </html>

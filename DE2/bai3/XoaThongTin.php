@@ -51,7 +51,7 @@
 <?php
 if(isset($_POST['MaSV'])){
 $MaSV = $_POST['MaSV'];
-$sql1 = "SELECT MaSV,TenKhoaVien,Lop,HoTen,NgaySinh FROM sinhvien join khoavien on sinhvien.MaKhoaVien = khoavien.MaKhoaVien whwere MaSV = '$MaSV'";
+$sql1 = "SELECT MaSV,TenKhoaVien,Lop,HoTen,NgaySinh FROM sinhvien join khoavien on sinhvien.MaKhoaVien = khoavien.MaKhoaVien where MaSV = '$MaSV'";
 $result = mysqli_query($conn, $sql1);
 echo "<h2>Ban co chac chan muon xoa sinh vien nay?</h2>"."<br>";
 if (mysqli_num_rows($result) > 0) {
@@ -74,11 +74,20 @@ if (mysqli_num_rows($result) > 0) {
     }
     echo "</table>";
 }
-echo "<form method='post' style='display:flex; width: 200px; flex-direction: column; justify-content: center; align-items: center; margin-top:40px;'>
-        <button type='submit' name='OK' style='display: block; width: 50px; background-color: slateblue; margin-top: 10px;'>Dong Y</button>
+echo "<form method='post' style='display:flex; width: 200px; flex-direction: row; justify-content: space-; align-items: center; margin-top:40px;'>
+        <button type='submit' name='OK' style='display: block; width: 100px; background-color: slateblue; margin-top: 10px;'>Dong Y</button>
         <button type='submit' name='KO' style='display: block; width: 50px; background-color: slateblue; margin-top: 10px;'>Huy</button>
         </form>";
 
+
+if (isset($_POST['OK'])) {
+    if (mysqli_query($conn, $sql2)) {
+        echo "Xoa thanh cong";
+        $conn->close();
+    } else {
+        echo "Loi ko xoa duoc: " . $sql2 . "<br>" . mysqli_error($conn);
+    }
+}
 $sql2 = "DELETE FROM sinhvien WHERE MaSV = '$MaSV'";
 }
 ?>
