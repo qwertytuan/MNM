@@ -8,9 +8,6 @@
 <body style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; color:black;">
     <div>
     <?php
-
-
-
     $database_host = 'localhost:3301';
     $username = 'root';
     $password = 'root';
