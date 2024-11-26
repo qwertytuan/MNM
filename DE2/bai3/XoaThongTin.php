@@ -79,9 +79,7 @@ $sql2 = "DELETE FROM sinhvien WHERE MaSV = '$MaSV'";
     } else {
         echo "Xoa that bai: " . mysqli_error($conn);
     }
-
-
-
+}
 ?>
 
     </div>
