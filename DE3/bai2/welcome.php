@@ -6,6 +6,7 @@ if ( $username=='admin' && $password=='1234')
     echo "Dang nhap thanh cong";
     session_start();
     $_SESSION['username']=$username;
+    setcookie('username', $username, time() + 3600);
 }
 else
 {

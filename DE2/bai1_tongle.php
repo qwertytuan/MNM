@@ -11,6 +11,11 @@
         <button type="submit" style="display: block; width: 50px; background-color: slateblue; margin-top: 10px;">Tinh</button>
     </form>
     <?php
+    if (!isset($_POST['SoN']))
+    {
+    }
+    else
+    {
     if (isset($_POST['SoN']) && $_POST['SoN'] > 2)
     {
         $SoN=$_POST['SoN'];
@@ -22,11 +27,13 @@
         echo "<br>";
         echo "<h2>Tong cac so le tu 1 den ". $SoN." la:".$sum."<br>" ;
     }
-    else
+    elseif (isset($_POST['SoN']) && $_POST['SoN'] <= 2)
     {
         echo "<br>";
         echo "<h2>N phai lon hon 2". "<br>";
     }
+}
     ?>
+    
 </body>
 </html>
